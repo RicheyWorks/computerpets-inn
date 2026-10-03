@@ -1,36 +1,44 @@
 # Inn
 
-**Pet Tavern Keep** — Run a cozy pub for traveling virtual pets — visitors from Visitation sit and sip.
+**Pet Tavern Keep** — A planned tavern game where visiting pets become patrons and meals earn treats.
 
 Part of [ComputerPets](https://github.com/RicheyWorks/computerpets). Map: [computerpets-ecosystem](https://github.com/RicheyWorks/computerpets-ecosystem).
 
-| | |
+[Status](#status) · [Design](docs/DESIGN.md) · [Contributor start](#contributor-start) · [Ecosystem](https://github.com/RicheyWorks/computerpets-ecosystem)
+
+| Project | At a glance |
 | --- | --- |
-| Status | Design scaffold — loop and engine frozen |
+| Status | Design scaffold; not runnable yet |
 | License | MIT |
 | Tokens | Minigames never mint or burn. Tired overlay, not a dead lineage. |
-| First pet | [Meet Rui first](https://github.com/RicheyWorks/computerpets/blob/main/docs/START-HERE.md). This game is optional. |
+| First pet | [Flagship start guide](https://github.com/RicheyWorks/computerpets/blob/main/docs/START-HERE.md) |
 
-## The loop
+## Status
+
+This repository contains a [design](docs/DESIGN.md) and a [source placeholder](src/Game.cs). It has no runnable application, build manifest, automated tests, or CI workflow.
+
+The experience, interfaces, integrations, and safeguards below are **implementation plans**, not supported features. The first implementation slice defines the initial contribution target.
+
+## Planned experience
 
 Hearth is the village. Inn is the business on the square. Patrons are other players' pets (guests, not stolen). Tips in treats. A sleeping Rui is a bad barkeep.
 
-## Who plays
+## Intended audience
 
 Hosts. Guests are Visitation pets, not stolen NFTs.
 
-## What it is not
+## Out of scope
 
 A casino. Ballot lives elsewhere. Gambling tables are forbidden.
 
-## Genre and engine
+## Planned genre and engine
 
 - Genre: **Business sim**
 - Engine: **Unity**
 - Stack: Unity 6 · C# · tavern loop · visiting pets as patrons · meals from Kettle
-- Default surface: `Unity editor`
+- Proposed surface: `Unity editor`
 
-## Architecture
+## Proposed integration
 
 ```mermaid
 flowchart LR
@@ -39,42 +47,42 @@ flowchart LR
   inn --> ledger
 ```
 
-## How you play
+## Proposed play loop
 
 1. Set menu + hours.
 2. Seat guest pets. Serve biome-legal drinks.
 3. Reviews affect tomorrow's traffic.
 4. Close up → overlay pets clock out.
 
-## First slice
+## First implementation slice
 
-Build this and stop.
+Initial implementation target:
 
 **Open an hour, seat one guest, serve a biome-legal drink, tip in treats.**
 
-You know it works when: Guest recalled: tip and vanish. Ledger down: IOU, settle later.
+Acceptance targets: Guest recalled: tip and vanish. Ledger down: IOU, settle later.
 
-## Environment
+## Planned environment
 
 Unity 6
 
-## Failure doctrine
+## Planned safeguards
 
 Guest pet recalled mid-sip → leave a tip and vanish. Ledger down → run on IOU, settle later. No gambling tables (Ballot is elsewhere).
 
-Canon rules that never yield:
+Design constraints:
 
 - 210 living kinds. No illegal hybrids.
 - Overlay pets can get tired, sick, or hide. Tokens are not burned by a minigame.
 - Desktop walk stays the main quest. Closing Inn must leave Rui walking.
 
-## Neighbors
+## Related projects
 
-- computerpets-visitation
-- computerpets-hearth
-- computerpets-kettle
-- computerpets-ledger
-- computerpets-discord (nightly last-call)
+- [computerpets-visitation](https://github.com/RicheyWorks/computerpets-visitation)
+- [computerpets-hearth](https://github.com/RicheyWorks/computerpets-hearth)
+- [computerpets-kettle](https://github.com/RicheyWorks/computerpets-kettle)
+- [computerpets-ledger](https://github.com/RicheyWorks/computerpets-ledger)
+- [computerpets-discord](https://github.com/RicheyWorks/computerpets-discord) (nightly last-call)
 
 ## Layout
 
@@ -86,13 +94,18 @@ computerpets-inn/
   src/                implementation lands here
 ```
 
-## Run (Windows)
+## Contributor start
+
+With Git and PowerShell, clone the scaffold and read its design and source marker:
 
 ```powershell
-Unity Hub > Inn/; play mode.
+git clone https://github.com/RicheyWorks/computerpets-inn.git
+Set-Location computerpets-inn
+Get-Content .\docs\DESIGN.md
+Get-Content .\src\Game.cs
 ```
 
-Meet Rui first via the [flagship start-here](https://github.com/RicheyWorks/computerpets/blob/main/docs/START-HERE.md). This game is optional.
+Start with the [first implementation slice](#first-implementation-slice). Add the minimum project setup and tests needed for that slice, then document verified run commands. The proposed stack above is a design choice; there is no install or launch command for this checkout yet.
 
 ## Links
 
